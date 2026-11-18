@@ -8,7 +8,7 @@ Open WebUI's native export (NDJSON) handles instance migration and backup well, 
 
 A portable per-conversation export that preserves what the UI actually renders — the visible branch (`history.currentId` parent-chain walk), roles, model ids, timestamps, attachments — in an open, self-describing single-file format. Today the only export path is `generate_chat_export_ndjson` in `backend/open_webui/routers/chats.py`, so this could slot in beside it. With the Functions system this requires no core changes: I've built and verified a Filter Function that does exactly this on `outlet`, and I'm sharing it as a working reference.
 
-**What the Function does** (`curt_export_function.py`, single file — its only import beyond the stdlib is `pydantic`, which ships with Open WebUI itself; installs via the admin Functions importer): serializes the conversation to a [`.curt`](https://github.com/JordanNewell/dot_curt) file — a small open single-file conversation format (JSON envelope, epoch-ms timestamps, strict whole-file validation, unknown fields preserved on round-trip). Regenerate variants are counted in a passthrough field; attachments ride as passthrough `files`. Files follow the format's `YYYY-MM-DD slug id-suffix.curt` bulk naming and are validated before being kept. Export failures never break the chat turn.
+**What the Function does** (`curt_export_function.py`, single file — its only import beyond the stdlib is `pydantic`, which ships with Open WebUI itself; installs via the admin Functions importer): serializes the conversation to a [`.curt`](https://github.com/dotcurt/dot_curt) file — a small open single-file conversation format (JSON envelope, epoch-ms timestamps, strict whole-file validation, unknown fields preserved on round-trip). Regenerate variants are counted in a passthrough field; attachments ride as passthrough `files`. Files follow the format's `YYYY-MM-DD slug id-suffix.curt` bulk naming and are validated before being kept. Export failures never break the chat turn.
 
 ### Why This Matters
 
@@ -18,7 +18,7 @@ A portable per-conversation export that preserves what the UI actually renders �
 
 ### Examples
 
-Source repo: https://github.com/JordanNewell/curt-openwebui — the Function is `functions/curt_export_function.py`, install steps in `functions/INSTALL.md`.
+Source repo: https://github.com/dotcurt/curt-openwebui — the Function is `functions/curt_export_function.py`, install steps in `functions/INSTALL.md`.
 
 Verification (all runnable from the repo):
 

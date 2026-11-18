@@ -27,7 +27,7 @@ is set to `False`.
 Point it at the raw file, e.g.:
 
 ```
-https://raw.githubusercontent.com/JordanNewell/curt-openwebui/main/functions/curt_export_function.py
+https://raw.githubusercontent.com/dotcurt/curt-openwebui/main/functions/curt_export_function.py
 ```
 
 ## Create Manually

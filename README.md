@@ -1,7 +1,7 @@
 # curt-openwebui
 
 Export [Open WebUI](https://github.com/open-webui/open-webui) chats to
-[`.curt`](https://github.com/JordanNewell/dot_curt) v1 single-file conversation
+[`.curt`](https://github.com/dotcurt/dot_curt) v1 single-file conversation
 files. Three artifacts:
 
 1. **`curt-openwebui-export`** — standalone TypeScript/Node CLI. Reads a chat
